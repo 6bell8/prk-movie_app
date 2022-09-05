@@ -2,6 +2,8 @@ import axios from "axios";
 import Profile from "./Profile";
 import { useState, useEffect } from "react";
 import { useParams, Link } from "react-router-dom";
+import { Swiper, SwiperSlide } from "swiper/react";
+import "swiper/css";
 
 export default function Detail() {
   const params = useParams();
@@ -65,35 +67,31 @@ export default function Detail() {
               <dl>
                 <dt>cast</dt>
                 <dd>
-                  <ul className="profileList">
+                  <Swiper className="profileList" spaceBetween={10} slidesPerView={"auto"}>
                     {cast.map((item, idx) => {
                       return (
-                        <Profile key={idx} profileInfo={item} />
-                        // <Profile key={idx} profile_path={item.profile_path} name={item.name} />
-                        // <li key={idx}>
-                        //   <img src={`https://image.tmdb.org/t/p/w185/${item.profile_path}`} />
-                        //   <span>{item.name}</span>
-                        // </li>
+                        <SwiperSlide className="item">
+                          <Profile key={idx} profileInfo={item} />
+                        </SwiperSlide>
                       );
+                      //return <Profile key={idx} profile_path={item.profile_path} name={item.name} />;
                     })}
-                  </ul>
+                  </Swiper>
                 </dd>
               </dl>
               <dl>
                 <dt>crew</dt>
                 <dd>
-                  <ul className="profileList">
+                  <Swiper className="profileList" spaceBetween={10} slidesPerView={"auto"}>
                     {crew.map((item, idx) => {
                       return (
-                        <Profile key={idx} profileInfo={item} />
-                        // <Profile key={idx} profile_path={item.profile_path} name={item.name} />
-                        // <li key={idx}>
-                        //   <img src={`https://image.tmdb.org/t/p/w185/${item.profile_path}`} />
-                        //   <span>{item.name}</span>
-                        // </li>
+                        <SwiperSlide className="item">
+                          <Profile key={idx} profileInfo={item} />
+                        </SwiperSlide>
                       );
+                      //return <Profile key={idx} profile_path={item.profile_path} name={item.name} />;
                     })}
-                  </ul>
+                  </Swiper>
                 </dd>
               </dl>
             </div>

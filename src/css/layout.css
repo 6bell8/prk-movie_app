@@ -115,6 +115,11 @@ li {
 .container .movieList li .info .genre span {
   display: inline-block;
 }
+.container .movieList li .info .genre span:before {
+  content: "/";
+  display: inline-block;
+  margin: 0 5px;
+}
 .container .movieList li .info .overview {
   display: -webkit-box;
   height: 4.5em;
@@ -152,6 +157,7 @@ li {
   overflow: hidden;
   background-color: #fff;
   border-radius: 50px 0 50px 0;
+  box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.2);
   color: #111;
   flex-grow: 1;
   margin-left: 50px;
@@ -169,14 +175,15 @@ li {
 .detail .detailBox .info .titleBox .originalTitle {
   margin: 10px 0;
 }
-.detail .detailBox .info .summary {
-  box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.2);
-}
 .detail .detailBox .info .summary dl {
   margin-bottom: 10px;
   padding-bottom: 10px;
   border-bottom: 1px dotted #ccc;
   align-items: center;
+}
+.detail .detailBox .info .summary dl dt {
+  text-transform: uppercase;
+  color: #999;
 }
 .detail .detailBox .info .summary dl dd {
   font-weight: 500;
@@ -188,17 +195,17 @@ li {
   overflow: hidden;
   width: 100%;
 }
-.detail .profileList li {
+.detail .profileList .item {
   display: flex;
   flex-direction: column;
-  margin: 0 5px;
+  width: 120px;
 }
-.detail .profileList li img {
-  width: 80px;
-  height: 120px;
+.detail .profileList .item img {
+  width: 100%;
+  height: 140px;
   object-fit: cover;
 }
-.detail .profileList li span {
+.detail .profileList .item span {
   font-size: 12px;
   margin-top: 10px;
 }
@@ -214,9 +221,36 @@ li {
   content: "";
   display: block;
   position: absolute;
+  left: 0;
+  top: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.75);
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+#search {
+  position: absolute;
+  right: 20px;
+  display: flex;
+}
+#search input {
+  height: 40px;
+  padding: 10px;
+  border-radius: 5px;
+  outline: none;
+  border: 1px solid #ccc;
+  min-width: 300px;
+}
+#search a {
+  background-color: #111;
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 5px;
+  text-transform: uppercase;
+  padding: 0 20px;
+  font-size: 14px;
 }
 
 @media all and (max-width: 1200px) {
